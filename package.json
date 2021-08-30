@@ -1,0 +1,19 @@
+{
+  "name": "webikstask",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NetanelShimoni/StarBacksStores_OpenLayers.git"
+  },
+  "author": "Netanel Shimoni",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NetanelShimoni/StarBacksStores_OpenLayers/issues"
+  },
+  "homepage": "https://github.com/NetanelShimoni/StarBacksStores_OpenLayers#readme"
+}
