@@ -9,7 +9,7 @@ with points that mark all the Starbucks stores in the world.
 From the list of countries that have these stores, one country is selected, 
 and the map seems to focus on that part (by zooming to the location of the stores).
 
-![תמונה](https://user-images.githubusercontent.com/57719538/131398516-43ecc50c-6824-487a-af5e-8fe4e99a6960.png)
+![תמונה](https://user-images.githubusercontent.com/57719538/131469068-87c72b21-e22f-4693-91b5-a0771fb1868d.png)
 
 
 ## How to use ?
