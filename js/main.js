@@ -9,7 +9,6 @@ class store{
     }
   }
 
-
 var source= new ol.source.Vector({
 });
 var vector= new ol.layer.Vector({
@@ -35,8 +34,6 @@ var map = new ol.Map({
   })
 });
 
-
-
 countryAfterFilter=[]
  var locations  = [] 
 
@@ -47,8 +44,8 @@ async function fetchDataAsync(url) {
    var k=0
    for( var i=0 ; i<myJson.length ; i++){
      locations.push({city: myJson[i].city, name:myJson[i].name,country: myJson[i].country,longitude: myJson[i].longitude,
-      latitude: myJson[i].latitude,store_id: myJson[i].store_id})
-
+      latitude: myJson[i].latitude,store_id: myJson[i].store_id});
+      DrawPoints(locations[i].longitude,locations[i].latitude);
       if(!countryAfterFilter.includes(locations[i].country)){
          countryAfterFilter[k]=locations[i].country;
          k++
@@ -69,9 +66,7 @@ function updateweb(){
  btn.onclick = (event) => {
     
      event.preventDefault();
-     // show the selected index
-     alert(sb.selectedIndex);
-     DrawPoints(countryAfterFilter[sb.selectedIndex]);
+     chanceCenter(countryAfterFilter[sb.selectedIndex])
 
  };
 }
@@ -96,20 +91,59 @@ var pointStyle= new ol.style.Style({
 });
 
 
-function DrawPoints(selected_country){
+
+function DrawPoints(x,y){
+        console.log(x+","+y)
+        var geom= new ol.geom.Point(ol.proj.fromLonLat([x,y]));
+        var feat= new ol.Feature(geom);
+        feat.setStyle(pointStyle);
+        source.addFeature(feat);
+  
+}
+
+
+function chanceCenter(selected_country){
+  let sumX=0;
+  let sumY=0;
+  let counter=0;
     for(let i=0;i<locations.length;i++){
       if(locations[i].country == selected_country){
-          var x= locations[i].longitude;
-          var y= locations[i].latitude;
-          console.log(x+","+y)
-          map.getView().setCenter(ol.proj.transform([x, y], 'EPSG:4326', 'EPSG:3857'));
-          map.getView().setZoom(5.55);
-          var geom= new ol.geom.Point(ol.proj.fromLonLat([x,y]));
-          var feat= new ol.Feature(geom);
-          feat.setStyle(pointStyle);
-          source.addFeature(feat);
+        console.log(locations[i].longitude+" and "+locations[i].latitude)
+         sumX=sumX+ locations[i].longitude;
+         sumY=sumY+ locations[i].latitude;
+         counter=counter+1;
+         
+     
       }
+     
     }
+    console.log("sumx is= "+sumX/counter+"and"+"sumY is:"+sumY/counter)
+    map.getView().setCenter(ol.proj.transform([(sumX/counter), (sumY/counter)], 'EPSG:4326', 'EPSG:3857'));
+    map.getView().setZoom(5.55);
     
 }
+  
+
+
+///////////////// Bonus
+function CheckCordinate() {
+  var retVal = prompt("Enter longitude  : ", "");
+  var retVal2 = prompt("Enter latitude : ", "");
+  var retVal3 = prompt(" 3-letter code of a country: ", "");
+
+  flag=0;
+  for(let i=0;i<locations.length;i++){
+    if(locations[i].longitude==retVal && locations[i].latitude==retVal2 && retVal3.includes(locations[i].country)){
+      alert("Starbacks Store in the given location")
+      flag=1;
+    }
+  }
+  if(flag==0){
+    alert("Starbacks Store in not in the given location")
+  }
+
+  
+}
+
+
 
