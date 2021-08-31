@@ -2,16 +2,31 @@
   height: 800px;
   width: 100%;
   float: right;
+  background-color:rosybrown;
 }
-/* #layers{
-  width: 10%;
-  height: 800px;
-  float: left;
-  background-color: rgb(211, 177, 24);
-  text-align: center;
-} */
-/* #btn{
-
-  width: 70px;
-  height: 20px;
-} */
+#btn{
+   font-family:
+  georgia,garamond,serif;
+  font-size:20px;
+  font-style:italic
+}
+#btn2{
+  font-family:
+ georgia,garamond,serif;
+ float: right;
+ font-size:20px;
+ font-style:italic
+ 
+}
+#countries{
+  font-family:
+  georgia,garamond,serif;
+  font-size:20px;
+  font-style:italic
+}
+#formtag{
+  font-family:
+  georgia,garamond,serif;
+  font-size:30px;
+  font-style:italic
+}
