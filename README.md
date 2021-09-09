@@ -1,4 +1,10 @@
 # StarBacksStores_OpenLayers
+
+![20210909_212127](https://user-images.githubusercontent.com/57719538/132741826-bae25b66-182b-48e7-90f4-b37aae06527d.gif)
+
+
+
+
 ## Discripsion:
 For this task we used an api that provides us a list of Starbucks stores.<br>
 
@@ -10,6 +16,7 @@ From the list of countries that have these stores, one country is selected,
 and the map seems to focus on that part (by zooming to the location of the stores).
 
 ![תמונה](https://user-images.githubusercontent.com/57719538/131469068-87c72b21-e22f-4693-91b5-a0771fb1868d.png)
+
 
 
 ## How to use ?
